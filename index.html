@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسم الشركة | الخدمات والحلول المبتكرة</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config & Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563eb', // الأزرق الأساسي
+                            hover: '#1d4ed8',
+                            light: '#eff6ff'
+                        },
+                        secondary: '#0f172a', // الكحلي الداكن
+                        accent: '#f59e0b'     // الذهبي للتأكيدات
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-primary selection:text-white">
+
+    <!-- ==================== الهيدر وقائمة التنقل ==================== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- شعار الشركة (Logo) - تم ضبط حجم اللوجو المربع بشكل ممتاز هنا -->
+                <a href="#home" class="flex items-center space-x-3 space-x-reverse">
+                    <!-- الصورة بحجم مربع مناسب ومتناسق h-12 w-12 مع الحفاظ على الأبعاد بالـ object-contain -->
+                    <img src="fA5 logo.png" 
+                         alt="شعار الشركة" 
+                         class="h-12 w-12 object-contain rounded-xl p-0.5 bg-slate-800 border border-slate-700/60 shadow-md"
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=Logo';">
+                    <span class="font-bold text-xl sm:text-2xl tracking-tight text-white">اسم <span class="text-primary">الشركة</span></span>
+                </a>
+
+                <!-- روابط القائمة لسطح المكتب -->
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse font-semibold text-sm">
+                    <a href="#home" class="hover:text-primary transition-colors py-2">الرئيسية</a>
+                    <a href="#about" class="hover:text-primary transition-colors py-2">من نحن</a>
+                    <a href="#services" class="hover:text-primary transition-colors py-2">خدماتنا</a>
+                    <a href="#portfolio" class="hover:text-primary transition-colors py-2">أعمالنا</a>
+                    <a href="#contact" class="hover:text-primary transition-colors py-2">تواصل معنا</a>
+                </nav>
+
+                <!-- زر اتصل بنا -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-xl font-bold shadow-lg shadow-primary/30 transition-all duration-300 inline-block text-sm">
+                        تواصل معنا
+                    </a>
+                </div>
+
+                <!-- زر قائمة الهواتف المحمولة -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2" aria-label="فتح القائمة">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- قائمة الهاتف المحمول -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-base font-medium">الرئيسية</a>
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-base font-medium">من نحن</a>
+            <a href="#services" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-base font-medium">خدماتنا</a>
+            <a href="#portfolio" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-base font-medium">أعمالنا</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md hover:bg-slate-800 text-base font-medium">تواصل معنا</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-link block text-center w-full bg-primary hover:bg-primary-hover text-white px-4 py-2.5 rounded-xl font-semibold">
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== القسم الرئيسي (Hero Section) ==================== -->
+    <section id="home" class="hero-bg text-white pt-32 pb-20 md:pt-40 md:pb-32 min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute top-1/4 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- النصوص والتعريف -->
+                <div class="space-y-6 text-center md:text-right">
+                    <div class="inline-flex items-center space-x-2 space-x-reverse px-4 py-1.5 rounded-full glass-card text-xs sm:text-sm font-medium text-blue-300">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        <span>مرحباً بكم في الموقع الرسمي لشركتنا</span>
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight">
+                        نبتكر الحلول لتطوير <span class="text-transparent bg-clip-text bg-gradient-to-l from-blue-400 to-primary">أعمالك ومستقبلك</span>
+                    </h1>
+                    
+                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+                        نحن شركة متخصصة في تقديم أحدث الخدمات والحلول الاحترافية. نساعد الشركات والمؤسسات على نمو أعمالهم بأعلى معايير الجودة والإبداع.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 bg-primary hover:bg-primary-hover text-white rounded-xl font-bold shadow-lg shadow-primary/30 transition-all duration-300 text-center">
+                            ابدأ مشروعك معنا
+                        </a>
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-3.5 glass-card hover:bg-white/10 text-white rounded-xl font-bold transition-all duration-300 text-center flex items-center justify-center space-x-2 space-x-reverse">
+                            <span>استكشف أعمالنا</span>
+                            <i class="fa-solid fa-arrow-left text-xs"></i>
+                        </a>
+                    </div>
+
+                    <!-- إحصائيات -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800 text-center md:text-right">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-white">+50</p>
+                            <p class="text-xs sm:text-sm text-gray-400">مشروع ناجح</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-white">+8</p>
+                            <p class="text-xs sm:text-sm text-gray-400">سنوات خبرة</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-white">100%</p>
+                            <p class="text-xs sm:text-sm text-gray-400">رضا العملاء</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة المؤسس أو رمز الشركة -->
+                <div class="relative flex justify-center">
+                    <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-4 border-slate-700/50 shadow-2xl">
+                        <img src="My fare.jpg" 
+                             alt="my fares"
+                             class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x600/1e293b/ffffff?text=صورة+المؤسس'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 right-6 left-6 text-right">
+                            <p class="text-lg font-bold text-white">صاحب الشركة / المؤسس</p>
+                            <p class="text-xs text-blue-300">المدير التنفيذي</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== قسم من نحن والمؤسس (About Section) ==================== -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest font-extrabold text-primary mb-2">من نحن</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-secondary">رؤية واضحة لشغف بالتميّز</p>
+                <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- نبذة عن المؤسس -->
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center space-x-4 space-x-reverse mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-100 text-primary flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-secondary">كلمة المؤسس</h3>
+                            <p class="text-xs text-gray-500">من الفكرة إلى الواقع</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        "بدأنا هذه الشركة بهدف تقديم حلول مبتكرة وعالية الجودة تُساهم في نهضة أعمال عملائنا. نؤمن بأن الالتزام والشفافية والتطور المستمر هي مفاتيح النجاح الحقيقي."
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        يمتلك الفريق خبرة واسعة، وتمكنا على مدار السنوات الماضية من بناء علاقات قائمة على الثقة المتبادلة مع جميع الشركاء والعملاء.
+                    </p>
+                </div>
+
+                <!-- رؤية ورسالة الشركة -->
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4 space-x-reverse p-4 rounded-2xl hover:bg-gray-50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0 mt-1">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-secondary mb-1">رؤيتنا</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                أن نكون الخيار الأول والرائد في مجالنا، من خلال تقديم خيارات مبتكرة تُبهر عملائنا وتتجاوز توقعاتهم.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 space-x-reverse p-4 rounded-2xl hover:bg-gray-50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary flex items-center justify-center text-xl shrink-0 mt-1">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-secondary mb-1">رسالتنا</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                تمكين الشركات والأفراد من تحقيق أقصى إمكانياتهم عبر الاستفادة من أفضل الأدوات والخبرات المتاحة بكفاءة واحترافية.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 space-x-reverse p-4 rounded-2xl hover:bg-gray-50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shrink-0 mt-1">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-secondary mb-1">قيمنا</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                الجودة العالية، الإبتكار المستمر، الشفافية، والالتزام المطلق بمواعيد التسليم ورضا العملاء.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== قسم الخدمات (Services Section) ==================== -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest font-extrabold text-primary mb-2">خدماتنا</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-secondary">ماذا نقدم لعملائنا؟</p>
+                <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">تطوير البرمجيات والمواقع</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        تصميم وتطوير مواقع وتطبيقات حديثة وسريعة ومتجاوبة مع كافة الشاشات بأحدث التقنيات البرمجية.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">الاستشارات وتخطيط الأعمال</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        تقديم دراسات واستشارات متخصصة لتطوير نموذج عملك وتجاوز التحديات واقتناص الفرص.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">التسويق والإدارة الرقمية</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        إعداد وإدارة الحملات الإعلانية والتسويقية لمضاعفة المبيعات والوصول للجمهور المستهدف.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">تصميم الهوية البصرية</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        ابتكار الشعارات والهويات التجارية الكاملة التي تعبر عن قيمة وأهداف عملك بأسلوب جذاب.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">الدعم الفني والصيانة</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        خدمات صيانة دورية وحماية شاملة لمشروعك لضمان أعلى أداء واستمرارية للعمل بدون أعطال.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3">إدارة وإشراف المشاريع</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        متابعة تنفيذ مشروعاتك خطوة بخطوة من البداية وحتى التسليم والتنفيذ الفعلي بأعلى كفاءة.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== قسم معرض الأعمال (Portfolio Section) ==================== -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest font-extrabold text-primary mb-2">معرض الأعمال</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-secondary">أبرز المشروعات الناجحة</p>
+                <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="group relative rounded-3xl overflow-hidden bg-gray-100 shadow-md hover:shadow-2xl transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
+                         alt="مشروع 1" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=مشروع+1'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs text-blue-400 font-semibold mb-1">تطوير منصة رقمية</span>
+                        <h3 class="text-lg font-bold text-white mb-2">بناء موقع إلكتروني للخدمات</h3>
+                        <p class="text-xs text-gray-300 mb-4">تصميم منصة سريعة ومتكاملة لتقديم الخدمة وتحليل الأداء.</p>
+                        <a href="#contact" class="text-sm text-white font-semibold flex items-center space-x-2 space-x-reverse hover:text-primary">
+                            <span>استفسر عن التفاصيل</span>
+                            <i class="fa-solid fa-arrow-left text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden bg-gray-100 shadow-md hover:shadow-2xl transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" 
+                         alt="مشروع 2" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=مشروع+2'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs text-blue-400 font-semibold mb-1">تطبيق هواتف</span>
+                        <h3 class="text-lg font-bold text-white mb-2">تطبيق للأجهزة الذكية</h3>
+                        <p class="text-xs text-gray-300 mb-4">واجهة مستخدم عصرية وسريعة الاستجابة مع حلول ذكية.</p>
+                        <a href="#contact" class="text-sm text-white font-semibold flex items-center space-x-2 space-x-reverse hover:text-primary">
+                            <span>استفسر عن التفاصيل</span>
+                            <i class="fa-solid fa-arrow-left text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden bg-gray-100 shadow-md hover:shadow-2xl transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" 
+                         alt="مشروع 3" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=مشروع+3'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs text-blue-400 font-semibold mb-1">هوية تجارية</span>
+                        <h3 class="text-lg font-bold text-white mb-2">تصميم علامة تجارية</h3>
+                        <p class="text-xs text-gray-300 mb-4">إعادة ابتكار الهوية والشعار لشركة استثمارية متطورة.</p>
+                        <a href="#contact" class="text-sm text-white font-semibold flex items-center space-x-2 space-x-reverse hover:text-primary">
+                            <span>استفسر عن التفاصيل</span>
+                            <i class="fa-solid fa-arrow-left text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== قسم اتصل بنا (Contact Section) ==================== -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest font-extrabold text-primary mb-2">تواصل معنا</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-secondary">سعداء بنقاش مشروعاتك القادمة</p>
+                <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-12">
+                
+                <!-- معلومات الاتصال -->
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-4 space-x-reverse">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-secondary">العنوان</h4>
+                            <p class="text-xs text-gray-600 mt-1">القاهرة، جمهورية مصر العربية</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-4 space-x-reverse">
+                        <div class="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-secondary">الهاتف / الواتساب</h4>
+                            <p class="text-xs text-gray-600 mt-1" dir="ltr">+20 100 000 0000</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-4 space-x-reverse">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-secondary">البريد الإلكتروني</h4>
+                            <p class="text-xs text-gray-600 mt-1">info@yourcompany.com</p>
+                        </div>
+                    </div>
+
+                    <!-- روابط السوشيال ميديا -->
+                    <div class="pt-4">
+                        <h4 class="text-sm font-bold text-secondary mb-3">تابعنا على شبكات التواصل:</h4>
+                        <div class="flex space-x-3 space-x-reverse">
+                            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-colors">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-colors">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-colors">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-colors">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- نموذج الإرسال -->
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-xs font-bold text-gray-700 mb-2">الاسم الكامل</label>
+                                <input type="text" id="name" required placeholder="أدخل اسمك هنا" 
+                                       class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-bold text-gray-700 mb-2">البريد الإلكتروني</label>
+                                <input type="email" id="email" required placeholder="name@example.com" 
+                                       class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-xs font-bold text-gray-700 mb-2">موضوع الاستفسار</label>
+                            <input type="text" id="subject" required placeholder="نوع الخدمة المطلوبة" 
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-bold text-gray-700 mb-2">تفاصيل الرسالة</label>
+                            <textarea id="message" rows="4" required placeholder="اكتب الاستفسار هنا..." 
+                                      class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-primary hover:bg-primary-hover text-white rounded-xl font-bold shadow-lg shadow-primary/30 transition-all duration-300">
+                            إرسال الرسالة
+                        </button>
+
+                        <div id="form-response" class="hidden p-4 rounded-xl text-sm font-semibold"></div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== الفوتر / الذيل (Footer) ==================== -->
+    <footer class="bg-slate-900 text-gray-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <!-- اللوجو مصغر في الفوتر أيضاً -->
+                    <img src="fA5 logo.png" 
+                         alt="شعار الشركة" 
+                         class="h-8 w-8 object-contain rounded-lg p-0.5 bg-slate-800 border border-slate-700/60"
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/2563eb/ffffff?text=Logo';">
+                    <p class="text-xs text-center md:text-right">© <span id="current-year"></span> جميع الحقوق محفوظة لـ <span class="text-white font-bold">اسم الشركة</span>.</p>
+                </div>
+
+                <div>
+                    <a href="#home" class="w-10 h-10 rounded-xl bg-slate-800 text-gray-300 hover:bg-primary hover:text-white flex items-center justify-center transition-colors">
+                        <i class="fa-solid fa-arrow-up text-sm"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Functions -->
+    <script>
+        // ضبط السنة الحالية تلقائياً في الفوتر
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // 1. فتح وإغلاق القائمة الجانبية للموبايل
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 2. معالجة نموذج إرسال الرسائل
+        const contactForm = document.getElementById('contact-form');
+        const formResponse = document.getElementById('form-response');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            formResponse.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+            formResponse.classList.add('bg-green-100', 'text-green-700');
+            formResponse.innerHTML = '<i class="fa-solid fa-circle-check ml-2"></i> تم إرسال رسالتك بنجاح! سنقوم بالتواصل معك في أقرب وقت ممكن.';
+
+            contactForm.reset();
+
+            setTimeout(() => {
+                formResponse.classList.add('hidden');
+            }, 5000);
+        });
+
+        // 3. تأثير هيدر عند التمرير
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg', 'bg-slate-950/95');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-slate-950/95');
+            }
+        });
+    </script>
+</body>
+</html>
